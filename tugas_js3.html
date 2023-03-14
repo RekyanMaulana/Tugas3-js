@@ -1,0 +1,66 @@
+<script>
+    //Membuat variabel nama dan nilai
+    let mhs1 = { nama: 'Raden', nilai: '95' };
+    let mhs2 = { nama: 'Rekyan', nilai: '85' };
+    let mhs3 = { nama: 'Adi', nilai: '76' };
+    let mhs4 = { nama: 'Dani', nilai: '87' };
+    let mhs5 = { nama: 'Riski', nilai: '78' };
+    let mhs6 = { nama: 'Ilham', nilai: '86' };
+    let mhs7 = { nama: 'Ahmad', nilai: '67' };
+    let mhs8 = { nama: 'Ryan', nilai: '45' };
+    let mhs9 = { nama: 'Fatar', nilai: '56' };
+    let mhs10 = { nama: 'Farid', nilai: '85' };
+
+    //Membuat array mahasiswa
+    let mhs = [mhs1, mhs2, mhs3, mhs4, mhs5, mhs6, mhs7, mhs8, mhs9, mhs10];
+</script>
+<h2 style="text-align: center;">
+    Data Nilai Mahasiswa
+    <table style="padding: 10; text-align: center; width: 100%;">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Nilai</th>
+                <th>Grade</th>
+                <th>Predikat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                let no = 1;
+                let warna;
+                for (mhs of mhs) {
+                    //Membuat variabel grade menggunakan multi kondisi
+                    let grade = '';
+
+                    if (mhs.nilai >= 90 && mhs.nilai <= 100) grade = 'A';
+                    else if (mhs.nilai >= 80 && mhs.nilai <= 89) grade = 'B';
+                    else if (mhs.nilai >= 70 && mhs.nilai <= 79) grade = 'C';
+                    else if (mhs.nilai >= 60 && mhs.nilai <= 69) grade = 'D';
+                    else if (mhs.nilai >= 0 && mhs.nilai <= 59) grade = 'E';
+                    else grade = '';
+
+                    //Membuat variabel predikat menggunakan switch case dari grade
+                    switch (grade) {
+                        case 'A': predikat = 'Sangat Baik'; break;
+                        case 'B': predikat = 'Baik'; break;
+                        case 'C': predikat = 'Cukup'; break;
+                        case 'D': predikat = 'Kurang'; break;
+                        case 'E': predikat = 'Sangat Kurang'; break;
+                        default: predikat = ''; break;
+                    }
+                    warna = (no % 2 == 0) ? 'skyblue' : 'plum';
+                    document.write(`<tr bgcolor="${warna}">
+                        <td>${no++}</td>
+                        <td>${mhs.nama}</td>
+                        <td>${mhs.nilai}</td>
+                        <td>${grade}</td>
+                        <td>${predikat}</td>
+                        </tr>`
+                    )
+                }
+            </script>
+        </tbody>
+    </table>
+</h2>
